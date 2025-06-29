@@ -1,12 +1,15 @@
 import React from 'react';
+import './MovieCard.css';
 
-const MovieCard = ({ title = "Sample Title", year = "1995", rating = "8.5", poster }) => {
+const MovieCard = ({ title, year, rating, poster }) => {
   return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '10px', width: '200px' }}>
-      <img src={poster || "https://via.placeholder.com/200x300"} alt="Poster" style={{ width: '100%' }} />
-      <h4>{title}</h4>
-      <p>Year: {year}</p>
-      <p>Rating: ⭐{rating}</p>
+    <div className="movie-card">
+      <img src={poster} alt={title} className="movie-poster" />
+      <div className="movie-info">
+        <h2>{title}</h2>
+        <p>Year: {year}</p>
+        <p>Rating: ⭐ {rating}</p>
+      </div>
     </div>
   );
 };

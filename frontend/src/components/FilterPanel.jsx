@@ -13,13 +13,13 @@ const FilterPanel = ({ setGenre, setType }) => {
   ];
 
   return (
-    <div className="p-6 w-[250px] bg-gray-100 flex-shrink-0">
-      <h2 className="text-xl font-bold mb-4">Filters</h2>
+    <div className="FilterPanel">
+      <h2 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Filters</h2>
 
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Genre:</label>
+      <div style={{ marginBottom: '1rem' }}>
+        <label style={{ display: 'block', marginBottom: '0.5rem' }}>Genre:</label>
         <select
-          className="w-full border rounded px-2 py-1"
+          style={{ width: '100%', padding: '0.5rem', borderRadius: '4px' }}
           onChange={(e) => setGenre(e.target.value)}
         >
           {genreOptions.map((genre) => (
@@ -31,9 +31,9 @@ const FilterPanel = ({ setGenre, setType }) => {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Type:</label>
+        <label style={{ display: 'block', marginBottom: '0.5rem' }}>Type:</label>
         <select
-          className="w-full border rounded px-2 py-1"
+          style={{ width: '100%', padding: '0.5rem', borderRadius: '4px' }}
           onChange={(e) => setType(e.target.value === 'movie' ? 'movie' : 'tv')}
         >
           <option value="movie">Movie</option>

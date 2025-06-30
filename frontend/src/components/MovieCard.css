@@ -25,3 +25,42 @@
 .movie-info h2 {
   margin-bottom: 0.5rem;
 }
+.movie-overview {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+.providers {
+  margin-top: 10px;
+}
+
+.provider-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+.provider-logo {
+  width: 32px;
+  height: auto;
+}
+.shuffle-button-wrapper {
+  margin-top: 20px;
+  margin-bottom:5px ;
+  display: flex;
+  justify-content: center;
+}
+
+.shuffle-button-wrapper button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #1e1e1e;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

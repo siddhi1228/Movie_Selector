@@ -81,7 +81,7 @@ const FilterPanel = ({ setGenre, setType, setRegion, setRating, setYearRange, ra
         </label>
 
         <label>
-          Minimum Rating: {rating}⭐
+          Minimum Rating: {rating}
           <input
             type="range"
             min="0"

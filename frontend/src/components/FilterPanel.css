@@ -1,8 +1,6 @@
-/* FilterPanel.css */
-
 .filter-panel {
   display: flex;
-  flex-direction: column;   /* Stack the heading and filters */
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
   padding: 10px;
@@ -10,7 +8,6 @@
   border-radius: 8px;
 }
 
-/* Filters below the heading */
 .filter-controls {
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +16,6 @@
   margin-top: 10px;
 }
 
-/* Labels and inputs grouped together */
 .filter-panel label {
   display: flex;
   flex-direction: column;
@@ -27,7 +23,6 @@
   font-size: 14px;
 }
 
-/* Styling for dropdowns and sliders */
 .filter-panel select,
 .filter-panel input[type="range"] {
   padding: 5px;

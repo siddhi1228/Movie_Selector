@@ -1,9 +1,14 @@
 import React from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav style={{ backgroundColor: 'black', color: 'white', padding: '1rem' }}>
-      <h2>Movie & Series Selector</h2>
+    <nav className="navbar">
+      <img src="/image.png" alt="Stream Shuffler" className="logo" />
+      <div className="title-block">
+        <h1 className="app-title">Stream Shuffler</h1>
+        <p className="tagline">Shuffle the stream. Find your scene.</p>
+      </div>
     </nav>
   );
 };

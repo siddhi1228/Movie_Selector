@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  color: white;
+  gap: 15px;
+}
+
+.logo {
+  height: 100px;
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #ccc;
+}

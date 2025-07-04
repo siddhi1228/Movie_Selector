@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({ title, year, rating, poster, overview, providers, onShuffle }) => {
+const MovieCard = ({ title, year, rating, poster, overview, providers, trailerKey, onShuffle }) => {
   return (
     <div className="movie-card">
       <img src={poster} alt={title} className="movie-poster" />
@@ -28,6 +28,24 @@ const MovieCard = ({ title, year, rating, poster, overview, providers, onShuffle
         ) : (
           <p>Not available on streaming platforms.</p>
         )}
+         {trailerKey ? (
+  <div className="trailer-section">
+    <h3>🎬 Trailer</h3>
+    <iframe
+      width="100%"
+      height="400"
+      src={`https://www.youtube.com/embed/${trailerKey}`}
+      title="Trailer"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+) : (
+  <p>No trailer available</p>
+)}
+
+
         <div className="shuffle-button-wrapper">
           <button onClick={onShuffle}>Shuffle</button>
         </div>

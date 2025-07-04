@@ -42,6 +42,7 @@ const FilterPanel = ({ setGenre, setType, setRegion, setRating, setYearRange, ra
     { label: 'Canadian', value: 'CA' },
     { label: 'Australian', value: 'AU' },
     { label: 'South African', value: 'ZA' },
+    { label: 'Philippine', value: 'PH' },
     { label: 'Other', value: 'other' },
     { label: 'All Regions', value: 'all' },
   ];

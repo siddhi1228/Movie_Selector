@@ -26,20 +26,32 @@ const Home = () => {
     const shuffled = res.data.results.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 1);
 
-    const moviesWithProviders = await Promise.all(
-      selected.map(async (movie) => {
-        const providerRes = await axios.get(
-          `https://api.themoviedb.org/3/${type || 'movie'}/${movie.id}/watch/providers?api_key=${API_KEY}`
-        );
-
-        const regionData = providerRes.data.results?.[region] || providerRes.data.results?.['US'];
-        const providers = regionData?.flatrate || regionData?.buy || regionData?.rent || [];
-
-        return { ...movie, providers };
-      })
+    const moviesWithExtras = await Promise.all(
+    selected.map(async (movie) => {
+    const providerRes = await axios.get(
+      `https://api.themoviedb.org/3/${type || 'movie'}/${movie.id}/watch/providers?api_key=${API_KEY}`
     );
 
-    setMovies(moviesWithProviders);
+    const regionData = providerRes.data.results?.[region] || providerRes.data.results?.['US'];
+    const providers = regionData?.flatrate || regionData?.buy || regionData?.rent || [];
+
+    const trailerRes = await axios.get(
+      `https://api.themoviedb.org/3/${type || 'movie'}/${movie.id}/videos?api_key=${API_KEY}`
+    );
+
+    const trailer = trailerRes.data.results.find(
+      (video) => video.type === 'Trailer' && video.site === 'YouTube'
+    );
+
+    return {
+      ...movie,
+      providers,
+      trailerKey: trailer?.key || null,
+    };
+  })
+);
+setMovies(moviesWithExtras);
+
   } catch (err) {
     console.error('Error fetching data:', err);
   }
@@ -72,6 +84,7 @@ const Home = () => {
               poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               overview={movie.overview}
               providers={movie.providers}
+              trailerKey={movie.trailerKey}
               onShuffle={fetchMovies}
             />
         ))}

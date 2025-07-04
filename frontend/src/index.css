@@ -41,7 +41,6 @@ code {
   flex-grow: 1;
 }
 
-/* Optional: Make sure FilterPanel doesn't collapse */
 .FilterPanel {
   width: 250px;
   background-color: #f4f4f4;

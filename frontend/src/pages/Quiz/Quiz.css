@@ -1,0 +1,19 @@
+.quiz-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.question-card {
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.options button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

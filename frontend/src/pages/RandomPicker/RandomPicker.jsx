@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import MovieCard from '../components/MovieCard';
-import FilterPanel from '../components/FilterPanel';
+import { Link } from 'react-router-dom'; 
+import MovieCard from './MovieCard';
+import FilterPanel from './FilterPanel';
 import axios from 'axios';
-import './Home.css';
+import './RandomPicker.css';
 
-const Home = () => {
+
+const RandomPicker = () => {
   const [movies, setMovies] = useState([]);
   const [genre, setGenre] = useState('');
   const [type, setType] = useState('');
@@ -62,35 +64,43 @@ setMovies(moviesWithExtras);
     fetchMovies();
   }, [fetchMovies]);
 
-  return (
-    <div className="home-container">
-      <FilterPanel
-        setGenre={setGenre}
-        setType={setType}
-        setRegion={setRegion}
-        setRating={setRating}
-        setYearRange={setYearRange}
-        rating={rating}
-        yearRange={yearRange}
-      />
-
-      <div className="movie-grid">
-        {movies.map((movie) => (
-          <MovieCard
-              key={movie.id}
-              title={movie.title || movie.name}
-              year={(movie.release_date || movie.first_air_date || 'N/A').split('-')[0]}
-              rating={movie.vote_average}
-              poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              overview={movie.overview}
-              providers={movie.providers}
-              trailerKey={movie.trailerKey}
-              onShuffle={fetchMovies}
-            />
-        ))}
-      </div>
+return (
+  <div className="home-container">
+    {/* 🔝 Move back button to top */}
+    <div className="back-to-home top-left">
+      <Link to="/" className="back-link">Home</Link>
     </div>
-  );
+
+    <FilterPanel
+      setGenre={setGenre}
+      setType={setType}
+      setRegion={setRegion}
+      setRating={setRating}
+      setYearRange={setYearRange}
+      rating={rating}
+      yearRange={yearRange}
+    />
+
+    <div className="movie-grid">
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          title={movie.title || movie.name}
+          year={(movie.release_date || movie.first_air_date || 'N/A').split('-')[0]}
+          rating={movie.vote_average}
+          poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          overview={movie.overview}
+          providers={movie.providers}
+          trailerKey={movie.trailerKey}
+          onShuffle={fetchMovies}
+        />
+      ))}
+    </div>
+  </div>
+);
+
+
+
 };
 
-export default Home;
+export default RandomPicker;

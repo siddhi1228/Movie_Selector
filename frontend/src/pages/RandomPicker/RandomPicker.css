@@ -23,4 +23,24 @@
   align-items: center;
 }
 
+.back-to-home.top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.back-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background: #1e1e1e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.back-link:hover {
+  background: #333;
+}
 

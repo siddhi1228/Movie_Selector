@@ -1,14 +1,19 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Landing from './pages/Landing';
+import RandomPicker from './pages/RandomPicker/RandomPicker';
+import Quiz from './pages/Quiz/Quiz';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Home />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/random" element={<RandomPicker />} />
+        <Route path="/quiz" element={<Quiz />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
